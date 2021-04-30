@@ -141,7 +141,7 @@ oc process -f gogs/template/gogs.yaml -p NAMESPACE="$(oc project)" | oc apply -f
 
 错误：
 
-- Error from server (Forbidden): securitycontextconstraints.security.openshift.io "gogs-anyuid" is forbidden: User "lsirui-redhat.com" cannot get resource "securitycontextconstraints" in API group "security.openshift.io" at the cluster scope
+- Error from server (Forbidden): securitycontextconstraints.security.openshift.io "gogs-anyuid" is forbidden: User "xxx" cannot get resource "securitycontextconstraints" in API group "security.openshift.io" at the cluster scope
 
 
 

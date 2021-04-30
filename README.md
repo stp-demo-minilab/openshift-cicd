@@ -11,31 +11,41 @@ CI/CD Tools:
 - Artifact Repository: Nexus
 - Code Analysis: SonarQube
 - CI Tool: Jenkins
-- Source Control: Gogs
+- Source Control: Gogs, GitLab
 
 
 
-## Set up Nexus 
+## Set up CI/CD Tools
+
+
+
+### Set up Nexus 
 
 - [Set up Nexus](./nexus/setup_nexus.md)
 
 
 
-## Set up Gogs
+### Set up Gogs
 
 - [Set up Gogs](./gogs/setup_gogs.md)
 
 
 
-## Set up SonarQube
+### Set up SonarQube
 
 - [Set up SonarQube](./sonarqube/setup_sonarqube.md)
 
 
 
-## Set up Jenkins
+### Set up Jenkins
 
 - [Set up Jenkins](./jenkins/setup_jenkins.md)
+
+
+
+### Set up GitLab CE
+- [Set up GitLab CE](./gitlab/setup_gitlab_ce.md)
+
 
 
 
@@ -48,7 +58,6 @@ References:
 - https://github.com/OpenShiftDemos
 - https://github.com/wkulhanek
 - https://github.com/rht-labs/labs-ci-cd
-- https://github.com/redhat-cop/helm-charts
 
 
 
@@ -56,6 +65,12 @@ Red Hat OpenShift Templates:
 
 - https://github.com/redhat-cop/openshift-templates
 - https://github.com/redhat-cop/containers-quickstarts
+
+
+
+Red Hat Helm Charts:
+
+- https://github.com/redhat-cop/helm-charts
 
 
 
