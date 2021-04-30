@@ -20,6 +20,15 @@ oc new-project "$GUID-sonarqube" --display-name="$GUID Shared Sonarqube"
 
 
 
+**Summary:**
+
+- OpenShift Template:
+  - https://github.com/OpenShiftDemos/sonarqube-openshift-docker/blob/master/sonarqube-postgresql-template.yaml
+- SonarQube: 
+  - Docker Image:  `quay.io/gpte-devops-automation/sonarqube:${SONARQUBE_VERSION}`
+- PostgreSQL:
+  - ImageStreamTag:  `postgresql:${DATABASE_VERSION}`
+
 ```bash
 # includes objects:
 # Service: sonarqube, postgresql-sonarqube
@@ -76,4 +85,16 @@ oc get route
 # Administration > Security > Permission Templates, and then revoke all permissions of "Creators"
 
 ```
+
+
+
+
+
+## Set Up SonarQube via OpenShift Template (v2)
+
+
+
+TODO
+
+
 

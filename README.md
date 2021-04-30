@@ -44,18 +44,21 @@ CI/CD Tools:
 References:
 
 - https://github.com/rht-labs/ubiquitous-journey
-
 - https://github.com/redhat-gpte-devopsautomation/
-
 - https://github.com/OpenShiftDemos
-
 - https://github.com/wkulhanek
-
 - https://github.com/rht-labs/labs-ci-cd
-
 - https://github.com/redhat-cop/helm-charts
 
-  
+
+
+Red Hat OpenShift Templates:
+
+- https://github.com/redhat-cop/openshift-templates
+- https://github.com/redhat-cop/containers-quickstarts
+
+
+
 
 Public Image registries:
 

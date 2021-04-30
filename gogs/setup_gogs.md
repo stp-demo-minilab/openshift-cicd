@@ -18,6 +18,25 @@ oc new-project "$GUID-gogs" --display-name="$GUID Shared Gogs"
 
 ### Import Gogs OpenShift Template
 
+**Summary:**
+
+- Gogs OpenShift Template:
+  - https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/master/openshift/gogs-persistent-template.yaml
+
+- PostgreSQL:
+
+  - ImageStreamTag: `postgresql:${DATABASE_VERSION}`
+
+    ```bash
+    oc get imagestreamtag -n openshift | grep -i postgre
+    ```
+
+- Gogs: 
+
+  - Docker Image: `docker.io/openshiftdemos/gogs:${GOGS_VERSION}`
+
+    
+
 ```bash
 # includes objects:
 # ServiceAccount: gogs
@@ -84,4 +103,53 @@ oc get route
 - https://github.com/wkulhanek/docker-openshift-gogs (not work in openshift 4.6)
 - [Gogs Downloads](https://dl.gogs.io/)
 - https://github.com/gogs/gogs
+
+
+
+## ~~Set Up Gogs via OpenShift Template (v2 )~~
+
+
+
+**Summary:**
+
+- Gogs OpenShift Template:
+  - https://raw.githubusercontent.com/redhat-cop/containers-quickstarts/master/gogs/.openshift/templates/gogs-persistent-template.yaml
+
+- PostgreSQL:
+
+  - ImageStreamTag: `postgresql:9.5`
+
+    ```bash
+    oc get imagestreamtag -n openshift | grep -i postgre
+    ```
+
+- Gogs: 
+  - Docker Image: `docker.io/gogs/gogs:${GOGS_VERSION}`
+
+
+
+```bash
+oc new-project "$GUID-gogs2" --display-name="$GUID Shared Gogs2"
+
+wget -O gogs/template/gogs.yaml https://raw.githubusercontent.com/redhat-cop/containers-quickstarts/master/gogs/.openshift/templates/gogs-persistent-template.yaml
+
+oc process -f gogs/template/gogs.yaml -p NAMESPACE="$(oc project)" | oc apply -f -
+  
+```
+
+
+
+错误：
+
+- Error from server (Forbidden): securitycontextconstraints.security.openshift.io "gogs-anyuid" is forbidden: User "lsirui-redhat.com" cannot get resource "securitycontextconstraints" in API group "security.openshift.io" at the cluster scope
+
+
+
+ Gogs container will run under `anyuid` SCC. Ensure you are logged into the Cluster (step 4) with an user with privileges to modify existing SecurityContextConstraints
+
+
+
+So can not run by regular user ?
+
+
 

@@ -31,6 +31,15 @@ oc new-project "$GUID-nexus" --display-name="$GUID Shared Nexus"
 
 ### Import Nexus OpenShift Tempalte
 
+**Summary:**
+
+- Nexus OpenShift Template:
+  - https://raw.githubusercontent.com/monodot/openshift-nexus/master/nexus3-persistent-template.yaml
+
+- SonarQube: `docker.io/sonatype/nexus3:${NEXUS_VERSION}`
+
+  
+
 ```bash
 
 
@@ -178,5 +187,40 @@ References:
 
   
 
+
+
+
+## Set Up Nexus by OpenShift Template (v2)
+
+
+
+**Summary:**
+
+- Nexus OpenShift Template:
+  - https://raw.githubusercontent.com/redhat-cop/openshift-templates/master/nexus/nexus-deployment-template.yml
+
+- SonarQube: `sonatype/nexus3:3.7.1`
+
+
+
+```bash
+# create project
+oc new-project "$GUID-nexus2" --display-name="$GUID Shared Nexus2"
+
+wget -O nexus/template/nexus.yaml https://raw.githubusercontent.com/redhat-cop/openshift-templates/master/nexus/nexus-deployment-template.yml
+
+# deploy nexus
+oc process -f nexus/template/nexus.yaml \
+  -p CONTAINER_IMAGE='sonatype/nexus3:3.7.1' \
+  | oc apply -f -
   
+# verify route
+oc get route
+
+# login nexus
+# default username/password: admin / admin123
+
+```
+
+
 
